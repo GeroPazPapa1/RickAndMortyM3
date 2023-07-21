@@ -1,0 +1,17 @@
+/*completar con el mio*/
+
+/***********************************ARRIBA MIO - ABAJO PROYECT***********************/
+
+
+.container {
+    display: flex;
+    margin: 15px;
+    gap: 20px
+}
+
+.selects{
+    display: flex;
+    height: 20px;
+    margin: 15px;
+    justify-content: center;
+}

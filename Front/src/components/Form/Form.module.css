@@ -1,0 +1,38 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+
+.container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+
+.container button { 
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+    .parent:hover {
+        color: gray;
+        background-color: white;
+        box-shadow: 0 5px  5px white;
+}
+
+
+.error {
+    color: rgb(1, 0, 1);
+
+}
