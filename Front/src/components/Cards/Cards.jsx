@@ -83,7 +83,7 @@ import style from "./Cards.module.css";
 
 export default function Cards(props) {
   return (
-    <div className={style.container}>
+    <div className={style.CardsContainer}>
       {props.characters.map((pj) => (
         <Card
           key={pj.id}

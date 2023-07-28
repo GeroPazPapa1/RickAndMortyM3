@@ -1,4 +1,4 @@
-const { default: axios } = require("axios");
+/*const { default: axios } = require("axios");
 const { KEY, URL } = process.env; 
 
 const getCharDetail = (req, res) => {
@@ -15,4 +15,4 @@ const getCharDetail = (req, res) => {
     });
 };
 
-module.exports = getCharDetail;
+module.exports = getCharDetail;*/

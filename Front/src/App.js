@@ -211,27 +211,35 @@ import Favorites from "./components/Favorites/Favorites";
 function App() {
   const navigate = useNavigate(); // Importar useNavigate !!!!!
   const [access, setAccess] = React.useState(false);
+  const [errorApi, seterrorApi] = React.useState(false);
 
   function logout() {
     setAccess(false);
   }
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = "http://localhost:3002/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
-      setAccess(access);
-      access && navigate("/home");
-    });
-  }
+
+  async function login(userData) {
+   const { email, password } = userData;
+   const URL = "http://localhost:3000/user/login/";
+
+   try {
+     const backendLogin = await axios(URL + `?email=${email}&password=${password}`);
+     const { data } = backendLogin;
+     const { access } = data;
+     setAccess(access); // setear el acces y si existe redirigir al home
+     access && navigate("/home");
+   } catch (error) {
+     // No se pudo hacer la solicitud al backend.
+     alert(error.message);
+   }
+}
 
   useEffect(() => {
     !access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
-  function onSearch(dato) {
-    // agrega personajes a characters
+  async function onSearch(dato) {
+ /*   // agrega personajes a characters
     axios(`http://localhost:3002/character/${dato}`)
       .then((respuesta) => {
         if (respuesta.data.name) {
@@ -242,7 +250,21 @@ function App() {
         } else {
         }
       })
-      .catch((err) => alert(err.response.data.error));
+      .catch((err) => alert(err.response.data.error));*/
+
+
+      try {
+      const backRequest = await axios(
+        `http://localhost:3000/character/${dato}`);
+      if (backRequest.data.name) {
+        seterrorApi(false);
+        setCharacters((oldChars) => [...oldChars, backRequest.data]);
+      } else {
+        seterrorApi(true);
+      }
+    } catch (error) {
+      seterrorApi(true);
+    }
   }
 
   function onClose(id) {
@@ -255,7 +277,7 @@ function App() {
     );
   }
 
-  const [characters, setCharacters] = useState([]); // [{}]
+  const [characters, setCharacters] = useState([]); 
 
   const location = useLocation();
 

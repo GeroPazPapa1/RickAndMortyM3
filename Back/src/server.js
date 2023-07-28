@@ -2,7 +2,7 @@
 // RUTAS
 // rickandmorty/character/id
 /************************************************************************************************/
-require("dotenv").config();
+/*require("dotenv").config();
 const express = require('express');
 const router = require('./routes');
 const morgan = require("morgan");
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3002; /* de esta manera estamos logrando
   entorno, un numero de puerto donde nosotros vamos a estar escuchando, pero
    eso sera cuando este desplegado, cuando NO este desplegado, lo vamos a tener
     que poner nosotros a mano. El puerto q vamos a utilizar, sera el que me proveea
-     el host, y si no, el de mi pc, q es 3001*/
+     el host, y si no, el de mi pc, q es 3001
 
 
 const server = express();
@@ -26,4 +26,4 @@ server.use("/", router);
 
 server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
-}); 
+}); */
